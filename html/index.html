@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Sign Up</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../css/style.css'>
+    
+</head>
+<body>
+    
+    <div class="signup-form">
+            
+        <div class="container">
+        <div class="section">
+                
+        <form  onsubmit ="return validateForm()">
+                <h1>Sign-Up!</h1>
+        <hr>
+            <!-- Enter first name -->
+            <td> First Name* </td>
+            <input type = "text" id = "fname" value = "" placeholder="Your First Name"> 
+            <span id = "blankMsg" style="color:red"> </span> <br><br>
+            
+            <!-- Enter last name -->
+            <td> Last Name </td>
+            <input type = "text" id = "lname" value = "" placeholder="Your Last Name"> 
+            <span id = "charMsg" style="color:red"> </span> <br><br>
+            
+            <!-- Create a new password -->
+            <td> Create Password* </td>
+            <input type = "password" id = "pswd1" value = "" placeholder="Enter Password"> 
+            <span id = "message1" style="color:red"> </span> <br><br>
+            
+            <!--?Enter confirm password -->
+            <td> Confirm Password* </td>
+            <input type = "password" id = "pswd2" value = ""  placeholder="Enter Password Again"> 
+            <span id = "message2" style="color:red"> </span> <br><br>
+            
+            <!-- Click to verify valid password -->
+            <button type = "submit" value = "Submit">Submit</button>
+            
+            <!-- Click to reset fields -->
+            <button type = "reset" value = "Reset" style="background-color:red" >Reset</button>
+            </form>
+            <hr>
+    </div>
+        </div>
+        
+    </div>
+    <div class="image">
+        <img src="../images/photo-1602016736566-7ed6a58894bd.jpeg">
+    </div>
+    
+</body>
+
+<script>
+        function validateForm() {
+        
+            var pw1 = document.getElementById("pswd1").value;
+             var pw2 = document.getElementById("pswd2").value;
+            var name1 = document.getElementById("fname").value;
+            var name2 = document.getElementById("lname").value;
+            
+            
+            if(name1 == "") {
+              document.getElementById("blankMsg").innerHTML = "**Fill the first name";
+               return false;
+            }
+            
+
+            if(!isNaN(name1)){
+                document.getElementById("blankMsg").innerHTML = "**Only characters are allowed";
+              return false;
+            }
+        
+           
+            if(!isNaN(name2)){
+              document.getElementById("charMsg").innerHTML = "**Only characters are allowed";
+              return false;
+            } 
+          
+            
+            if(pw1 == "") {
+              document.getElementById("message1").innerHTML = "**Fill the password please!";
+              return false;
+            }
+          
+            
+            if(pw2 == "") {
+              document.getElementById("message2").innerHTML = "**Enter the password please!";
+              return false;
+            } 
+           
+            
+            if(pw1.length < 8) {
+              document.getElementById("message1").innerHTML = "**Password length must be atleast 8 characters";
+              return false;
+            }
+        
+        
+            if(pw1.length > 15) {
+              document.getElementById("message1").innerHTML = "**Password length must not exceed 15 characters";
+              return false;
+            }
+          
+            if(pw1 != pw2) {
+              document.getElementById("message2").innerHTML = "**Passwords are not same";
+              return false;
+            } else {
+              alert ("Your password created successfully");
+              
+            }
+         }
+
+         function matchPassword() {
+               var pw1 = document.getElementById("pw1");
+              var pw2 = document.getElementById("pw2");
+              if(pw1 != pw2)
+       {	
+  	           alert("Passwords did not match");
+        } else {
+             	alert("Password created successfully");
+       }
+}
+        </script>    
+</html>
